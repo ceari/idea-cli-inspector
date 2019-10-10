@@ -4,4 +4,6 @@ services:
 - docker
 
 script:
-- docker run --rm -v `pwd`:/project bentolor/idea-cli-inspector -v -r .
+- docker build -t bentolor/idea-cli-inspector .
+- mkdir -p `pwd`/target && chmod 777 `pwd`/target
+- docker run --rm -v `pwd`:/project bentolor/idea-cli-inspector -v -r /project
